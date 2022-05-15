@@ -1,0 +1,3 @@
+rootProject.name = 'BootDndCharacter'
+
+includeFlat 'DndCharacterJPA'

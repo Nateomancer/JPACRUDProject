@@ -6,12 +6,14 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.dndcharacterjpa.entities.DndCharacter;
+
 @Service
 @Transactional
 public interface DndCharacterDAO {
 
-	Character findById(int id);
+	DndCharacter findById(int id);
 
-	List<Character> findall();
+	List<DndCharacter> findAll();
 
 }

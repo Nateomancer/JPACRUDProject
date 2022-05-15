@@ -14,13 +14,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.dndcharacterjpa.entities.Character;
+import com.skilldistillery.dndcharacterjpa.entities.DndCharacter;
 
-class CharacterTest {
+class DndCharacterTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Character character;
+	private DndCharacter character;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -38,7 +38,7 @@ class CharacterTest {
 	void setUp() throws Exception {
 
 		em = emf.createEntityManager();
-		character = em.find(Character.class, 1);
+		character = em.find(DndCharacter.class, 1);
 	}
 
 	@AfterEach

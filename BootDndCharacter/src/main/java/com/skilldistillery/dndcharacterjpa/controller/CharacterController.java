@@ -13,10 +13,10 @@ public class CharacterController {
 @Autowired
 private DndCharacterDAO dao;
 
-@RequestMapping(path= {"/"})
+@RequestMapping(path= {"/", "index"})
 public String index(Model model) {
 	
-	model.addAttribute("DEBUG", dao.findById(1));
+	model.addAttribute("Characters", dao.findAll());
 	return "index";
 }
 }

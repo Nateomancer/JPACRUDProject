@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="dnd_character")
-public class Character {
+public class DndCharacter {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Character {
 	@Column(name = "name")
 	private String characterName;
 
-	public Character() {
+	public DndCharacter() {
 
 	}
 

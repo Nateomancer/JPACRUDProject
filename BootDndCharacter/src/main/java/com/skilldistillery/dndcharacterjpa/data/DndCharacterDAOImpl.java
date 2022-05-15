@@ -19,14 +19,14 @@ public class DndCharacterDAOImpl implements DndCharacterDAO {
 	String jpql="Select C from Character C";
 	
 	@Override
-	public DndCharacter findById(int characterId) {
+	public DndCharacter findById(int charId) {
 
-		return em.find(DndCharacter.class, characterId);
+		return em.find(DndCharacter.class, charId);
 	}
 
 	@Override
 	public List<DndCharacter> findAll() {
-		// TODO Auto-generated method stub
+	
 		return em.createQuery("Select C from DndCharacter C", DndCharacter.class).getResultList();
 	}
 

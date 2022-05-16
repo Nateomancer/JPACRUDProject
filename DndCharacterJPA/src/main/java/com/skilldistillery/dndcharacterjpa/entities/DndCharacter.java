@@ -15,15 +15,12 @@ public class DndCharacter {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "name")
-	private String characterName;
+	private String name;
 
-	@Column(name = "char_class")
-	private String charClass;
+	private String job;
 
 	private String race;
 
-	@Column(name = "strengh")
 	private int strength;
 
 	private int dexterity;
@@ -46,6 +43,39 @@ public class DndCharacter {
 
 	}
 
+	public DndCharacter(int id, String name, String job, String race, int strength, int dexterity, int constitution,
+			int intelligence, int wisdom, int charisma) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.job = job;
+		this.race = race;
+		this.strength = strength;
+		this.dexterity = dexterity;
+		this.constitution = constitution;
+		this.intelligence = intelligence;
+		this.wisdom = wisdom;
+		this.charisma = charisma;
+	}
+
+	public DndCharacter(int id, String name, String job, String race, int strength, int dexterity, int constitution,
+			int intelligence, int wisdom, int charisma, String alignment, String background, String abilities) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.job = job;
+		this.race = race;
+		this.strength = strength;
+		this.dexterity = dexterity;
+		this.constitution = constitution;
+		this.intelligence = intelligence;
+		this.wisdom = wisdom;
+		this.charisma = charisma;
+		this.alignment = alignment;
+		this.background = background;
+		this.abilities = abilities;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -54,20 +84,20 @@ public class DndCharacter {
 		this.id = id;
 	}
 
-	public String getCharacterName() {
-		return characterName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCharacterName(String characterName) {
-		this.characterName = characterName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCharClass() {
-		return charClass;
+	public String getJob() {
+		return job;
 	}
 
-	public void setCharClass(String charClass) {
-		this.charClass = charClass;
+	public void setJob(String job) {
+		this.job = job;
 	}
 
 	public String getRace() {
@@ -152,10 +182,10 @@ public class DndCharacter {
 
 	@Override
 	public String toString() {
-		return "DndCharacter [id=" + id + ", characterName=" + characterName + ", charClass=" + charClass + ", race="
-				+ race + ", strength=" + strength + ", dexterity=" + dexterity + ", constitution=" + constitution
-				+ ", intelligence=" + intelligence + ", wisdom=" + wisdom + ", charisma=" + charisma + ", alignment="
-				+ alignment + ", background=" + background + ", abilities=" + abilities + "]";
+		return "Dnd Character id: " + id + " Name: " + name + " Class: " + job + " Race: " + race + " Strength: "
+				+ strength + " Dexterity: " + dexterity + " Constitution: " + constitution + " Intelligence: "
+				+ intelligence + " Wisdom:" + wisdom + " Charisma: " + charisma + " Alignment: " + alignment
+				+ " Background: " + background + " Abilities: " + abilities;
 	}
 
 }

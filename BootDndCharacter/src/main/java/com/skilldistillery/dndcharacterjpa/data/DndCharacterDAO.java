@@ -12,8 +12,12 @@ import com.skilldistillery.dndcharacterjpa.entities.DndCharacter;
 @Transactional
 public interface DndCharacterDAO {
 
-	DndCharacter findById(int id);
+	DndCharacter findCharacterById(int id);
 
-	List<DndCharacter> findAll();
+	List<DndCharacter> findAllCharacters();
+
+	DndCharacter findCharacterByName(String characterName);
+
+	List<DndCharacter> findByClassAndRace(String characterClass, String race);
 
 }

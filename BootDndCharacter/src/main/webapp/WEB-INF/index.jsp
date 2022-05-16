@@ -10,12 +10,15 @@
 <title>Welcome Friend</title>
 </head>
 <body>
+<%@ include file="nav.jsp" %>
 
 	<h1>SD Dungeons & Dragons Character Manager</h1>
 	<!--FIND CHARACTER BY ID  -->
 	${DEBUG} 
 	<div>
 		<!--FIND CHARACTER BY ID  -->
+		<br>
+		<hr>
 		<h3>Search for Character with their ID</h3>
 		<form action="showCharacter.do" method="GET">
 			<label for="id">Enter Character ID:</label> 
@@ -23,8 +26,9 @@
 			<input type="submit" value="Find Character">
 		</form>
 		RESULT:	${dndCharIdResult} 
-		
 	</div>
+	
+	<hr>
 	<br>
 	<div>
 		<!--FIND CHARACTER BY NAME  -->
@@ -33,28 +37,35 @@
 			<label for="name">Enter Character Name:</label> 
 			<input type="text"name="name" id="name" /> <input type="submit"value="Find Character">
 		</form>
+		<br>
 		RESULT: ${dndCharNameResult}
 	</div>
 
 	<br>
+	<hr>
 	<div>
 		<!--FIND CHARACTER BY CLASS OR RACE-->
-		<h3>Search for Character with by class and race</h3>
+		<h3>Search for Character by job and race</h3>
 		<form action="findCharacterByJobAndRace.do" method="GET">
 			<label for="job">Enter Character Job:</label> 
 			<input type="text" name="job" id="job" /> 
 			<label for="race">Enter Character Race:</label> <input type="text" name="race" id="race" />
 			<input type="submit" value="Find Character">
+		
 		</form>
-		RESULT: ${dndCharResultList}	
+		<br>
+		RESULT: ${dndCharJobAndRaceResultList}	
 	</div>
 	<br>
+	<hr>
 	
 	
 	<div>
-		<h2>Character List</h2>
+		<h2>Character Table</h2>
 		<ul>
-			<c:forEach var="dndChar" items="${dndCharacters}">
+		
+			<c:forEach var="dndChar" items="${dndCharacters}"> 
+				
 				<li><a><strong>Character ID:</strong> </a>${dndChar.id}</li>
 				<li><a><strong>Name:</strong> </a>${dndChar.name}</li>
 				<li><a><strong>Class: </strong></a>${dndChar.job}</li>
@@ -68,15 +79,35 @@
 			</c:forEach>
 		</ul>
 	</div>
+	<hr>
 	<br>
-	<h2>Links</h2>
-	<a href="showCharecter.do>">Show Character</a>
-	<br>
-	<a href="newCharacter.do"> Add a new Character</a>
-	<!-- <input action="createCharacter.do" method="get" type="submit" name="addNewCharacter" id="addNewFilm" value="Create New Film" /> -->
-	<br>
-	<a href="getAllCharacters.do"> Show a list of all characters</a>
-	<!-- <input action="createFilm.do" method="get" type="submit" name="addNewFilm" id="addNewFilm" value="Create New Film" /> -->
-	<br>
+	<div>
+	<h2>NavLinks</h2>
+	<nav>
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/showCharacter.jsp"> Find Character </a>
+		<a href="showCharacter.do>">showCharacter.do</a></p>
+		
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/character/createCharacter.jsp"> New Character</a>
+		<a href="newCharacter.do"> newCharacter.do</a></p>
+		
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/character/deleteCharacter.jsp">Delete Character</a>
+		<a href="deleteCharacter.do">deleteCharacter.do</a></p>
+		
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/character/showAllCharacters.jsp">Show All Characters</a>
+		<a href="getAllCharacters.do"> getAllCharacters.do</a></p>
+			
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/index.jsp">Home Page Link</a>
+		<a href="index.do">index.do</a></p>
+	
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/noResult.jsp">No Result Link</a>
+		<a href="noResult.do">noResult.Do</a></p>
+	
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/operationSuccessful.jsp">CRUD Operation Successful</a>
+		<a href="operationSuccesful.do">operationSuccessful.do</a></p>
+		
+	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/operationSuccessful.jsp">CRUD Operation Failed</a>
+		<a href="operationFailed.do">operationFailed.do</a></p>
+		</nav>
+	</div>
 </body>
 </html>

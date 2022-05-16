@@ -36,6 +36,8 @@
 				<li><a><strong>Wisdom: </strong></a>${dndChar.wisdom}</li>
 				<li><a><strong>Charisma: </strong></a>${dndChar.charisma}</li>
 				<br>
+				<br/>
+				
 			</c:forEach>
 		</ul>
 	</div>

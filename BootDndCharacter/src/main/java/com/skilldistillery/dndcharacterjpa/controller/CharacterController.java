@@ -59,7 +59,7 @@ public class CharacterController {
 		DndCharacter dndCharNameResult = dao.findCharacterByName(name);
 		model.addAttribute("dndCharNameResult", dndCharNameResult);
 		System.err.println("Character: " + dndCharNameResult);
-
+		
 		return "index";
 	}
 
@@ -72,8 +72,8 @@ public class CharacterController {
 		System.out.println("Char race: " + race);
 		System.err.println("findCharacterByClassAndRace.do");
 
-		List<DndCharacter> dndCharResultList = dao.findByJobAndRace(job, race);
-		model.addAttribute("dndCharResultList", dndCharResultList);
+		List<DndCharacter> dndCharJobAndRaceResultList = dao.findByJobAndRace(job, race);
+		model.addAttribute("dndCharJobAndRaceResultList", dndCharJobAndRaceResultList);
 
 		return "index";
 	}

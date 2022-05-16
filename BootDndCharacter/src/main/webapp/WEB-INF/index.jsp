@@ -13,7 +13,6 @@
 
 	<h1>SD Dungeons & Dragons Character Manager</h1>
 	<!--FIND CHARACTER BY ID  -->
-	${DEBUG} ${dndCharacters}
 	<div>
 		<!--FIND CHARACTER BY ID  -->
 		<br>
@@ -27,8 +26,6 @@
 		RESULT:	${dndCharIdResult} 
 		
 		<ul>
-			
-				
 				<li><a><strong>Character ID:</strong> </a>${dndCharIdResult.id}</li>
 				<li><a><strong>Name:</strong> </a>${dndCharIdResult.name}</li>
 				<li><a><strong>Class: </strong></a>${dndCharIdResult.job}</li>
@@ -54,22 +51,6 @@
 		</form>
 		<br>
 		RESULT: ${dndCharNameResult}
-		
-		<%-- <ul>
-			 <c:forEach var="dndCharN" items="${dndCharNameResult}">
-				
-				<li><a><strong>Character ID:</strong> </a>${dndCharN.id}</li>
-				<li><a><strong>Name:</strong> </a>${dndCharN.name}</li>
-				<li><a><strong>Class: </strong></a>${dndCharN.job}</li>
-				<li><a><strong>Race: </strong></a>${dndCharN.race}</li>
-				<li><a><strong>Strength: </strong></a>${dndCharN.strength}</li>
-				<li><a><strong>Dexterity: </strong></a>${dndCharN.dexterity}</li>
-				<li><a><strong>Constitution: </strong></a>${dndCharN.constitution}</li>
-				<li><a><strong>Intelligence: </strong></a>${dndCharN.intelligence}</li>
-				<li><a><strong>Wisdom: </strong></a>${dndCharN.wisdom}</li>
-				<li><a><strong>Charisma: </strong></a>${dndCharN.charisma}</li>
-			</c:forEach> 
-		</ul> --%>
 	</div>
 
 	<br>
@@ -86,75 +67,98 @@
 		</form>
 		<br>
 		RESULT: ${dndCharJobRaceSearchResult}	
-		
-		<%-- <ul>
-			<c:forEach var="dndCharJR" items="${dndCharJobRaceResult}"> 
-				
-				<li><a><strong>Character ID:</strong> </a>${dndCharJR.id}</li>
-				<li><a><strong>Name:</strong> </a>${ddndCharJR.name}</li>
-				<li><a><strong>Class: </strong></a>${dndCharJR.job}</li>
-				<li><a><strong>Race: </strong></a>${dndCharJR.race}</li>
-				<li><a><strong>Strength: </strong></a>${dndCharJR.strength}</li>
-				<li><a><strong>Dexterity: </strong></a>${dndCharJR.dexterity}</li>
-				<li><a><strong>Constitution: </strong></a>${dndCharJR.constitution}</li>
-				<li><a><strong>Intelligence: </strong></a>${dndCharJR.intelligence}</li>
-				<li><a><strong>Wisdom: </strong></a>${dndCharJR.wisdom}</li>
-				<li><a><strong>Charisma: </strong></a>${dndCharJR.charisma}</li>
-	< 		</c:forEach>
-		</ul> --%>
 	</div>
 	<br>
 	<hr>
-	
-	
 	<div>
-		<h2>Character Table</h2>
-		<ul>
+	<h3>Create Character</h3>
+	<form action="createNewDndCharacter.do" method="GET">
+	
+			<label for="name">Enter Character Name:</label> 
+			<input type="text"name="name" id="name" /> 
+			<label for="job">Enter Character Job:</label> 
+			<input type="text" name="job" id="job" /> 
+			<label for="race">Enter Character Race:</label> 
+			<input type="text" name="race" id="race" />
+			<input type="submit" value="Create Character">
+	
+	</form>
+	</div>
+	<hr>
+	<div>
+	<h3>Update Character</h3>
+	<form action="updateExistingDndCharacter.do" method="GET">
+	
+			<label for="id">Enter Character ID:</label> 
+			<input type="number" name="id" id="id" /> 
+			
+			<label for="name">Enter Character Name:</label> 
+			<input type="text" name="name" id="name" />
+			
+			<label for="job">Enter Character Job:</label> 
+			<input type="text" name="job" id="job" /> 
+			
+			<input type="submit" value="Update Character">
+	
+	</form>
+	</div>
+	<hr>
+	<div>
+	<h3>Delete Character</h3>
+	<form action="deleteExistingDndCharacter.do" method="GET">
+	
+			<label for="id">Enter Character ID:</label> 
+			<input type="number"name="id" id="id" /> 
+			<input type="submit" value="Delete Character">
+	<hr>
+	</form>
+	</div>
+	<div>
+		<h2>Character Table-Lists all Characters</h2>
+		<form action="index.do" method="GET">
+		<input type="submit" value="Refresh Table">
+		</form>
+	<table>
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Name</th>
+				<th scope="col">Job</th>
+				<th scope="col">Race</th>
+				<th scope="col">Strength</th>
+				<th scope="col">Dexterity</th>
+				<th scope="col">Constitution</th>
+				<th scope="col">Intelligence</th>
+				<th scope="col">Wisdom</th>
+				<th scope="col">Charisma</th>
+			</tr>
+		</thead>
 		
 			<c:forEach var="dndChar" items="${dndCharacters}"> 
-				
-				<li><a><strong>Character ID:</strong> </a>${dndChar.id}</li>
-				<li><a><strong>Name:</strong> </a>${dndChar.name}</li>
-				<li><a><strong>Class: </strong></a>${dndChar.job}</li>
-				<li><a><strong>Race: </strong></a>${dndChar.race}</li>
-				<li><a><strong>Strength: </strong></a>${dndChar.strength}</li>
-				<li><a><strong>Dexterity: </strong></a>${dndChar.dexterity}</li>
-				<li><a><strong>Constitution: </strong></a>${dndChar.constitution}</li>
-				<li><a><strong>Intelligence: </strong></a>${dndChar.intelligence}</li>
-				<li><a><strong>Wisdom: </strong></a>${dndChar.wisdom}</li>
-				<li><a><strong>Charisma: </strong></a>${dndChar.charisma}</li>
-			</c:forEach> 
-		</ul>
+			<tr>
+			
+			<td>${dndChar.id}</td>
+			<td>${dndChar.name}</td>
+			<td>${dndChar.job}</td>
+			<td>${dndChar.race}</td>
+			<td>${dndChar.strength}</td>
+			<td>${dndChar.dexterity}</td>
+			<td>${dndChar.constitution}</td>
+			<td>${dndChar.intelligence}</td>
+			<td>${dndChar.wisdom}</td>
+			<td>${dndChar.charisma}</td>
+			</tr>
+			</c:forEach>
+			</table>	
 	</div>
 	<hr>
 	<br>
 	<div>
 	<h2>NavLinks</h2>
 	<nav>
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/showCharacter.jsp"> Find Character </a>
-		<a href="showCharacter.do>">showCharacter.do</a></p>
-		
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/character/createCharacter.jsp"> New Character</a>
-		<a href="newCharacter.do"> newCharacter.do</a></p>
-		
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/character/deleteCharacter.jsp">Delete Character</a>
-		<a href="deleteCharacter.do">deleteCharacter.do</a></p>
-		
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/character/showAllCharacters.jsp">Show All Characters</a>
-		<a href="getAllCharacters.do"> getAllCharacters.do</a></p>
-			
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/index.jsp">Home Page Link</a>
-		<!-- <a href="index.do">index.do</a></p> -->
-	
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/noResult.jsp">No Result Link</a>
-		<a href="noResult.do">noResult.Do</a></p>
-	
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/operationSuccessful.jsp">CRUD Operation Successful</a>
-		<a href="operationSuccesful.do">operationSuccessful.do</a></p>
-		
-	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/operationSuccessful.jsp">CRUD Operation Failed</a>
-		<a href="operationFailed.do">operationFailed.do</a></p>
-		</nav>
+	<p><a href=https://www.dndbeyond.com/>Visit Dnd Beyond for help  creating a Character</a></p>
+	<p><a href=https://dnd.wizards.com/> Visit Dnd Wizards for more dnd info</a></p>
+	</nav>
 	</div>
 </body>
 </html>

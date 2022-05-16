@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
+@SuppressWarnings("unused")
 @Entity
 @Table(name = "dnd_character")
 public class DndCharacter {
@@ -43,11 +44,27 @@ public class DndCharacter {
 	public DndCharacter() {
 
 	}
+	
 
-	public DndCharacter(int id, String name, String job, String race, int strength, int dexterity, int constitution,
+	public DndCharacter(String name, String job) {
+		super();
+		this.name = name;
+		this.job = job;
+	}
+
+
+	public DndCharacter(String name, String job, String race) {
+		super();
+
+		this.name = name;
+		this.job = job;
+		this.race = race;
+	}
+
+	public DndCharacter(String name, String job, String race, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) {
 		super();
-		this.id = id;
+
 		this.name = name;
 		this.job = job;
 		this.race = race;
@@ -57,6 +74,24 @@ public class DndCharacter {
 		this.intelligence = intelligence;
 		this.wisdom = wisdom;
 		this.charisma = charisma;
+	}
+
+	public DndCharacter(String name, String job, String race, int strength, int dexterity, int constitution,
+			int intelligence, int wisdom, int charisma, String alignment, String background, String abilities) {
+		super();
+
+		this.name = name;
+		this.job = job;
+		this.race = race;
+		this.strength = strength;
+		this.dexterity = dexterity;
+		this.constitution = constitution;
+		this.intelligence = intelligence;
+		this.wisdom = wisdom;
+		this.charisma = charisma;
+		this.alignment = alignment;
+		this.background = background;
+		this.abilities = abilities;
 	}
 
 	public DndCharacter(int id, String name, String job, String race, int strength, int dexterity, int constitution,

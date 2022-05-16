@@ -5,27 +5,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel=index href=index.jsp>
-<link rel=showCharacter href=showCharacter.jsp>
+<!-- <link rel=index href=index.jsp>
+<link rel=showCharacter href=showCharacter.jsp> -->
 <title>Welcome Friend</title>
 </head>
 <body>
-<%@ include file="nav.jsp" %>
 
 	<h1>SD Dungeons & Dragons Character Manager</h1>
 	<!--FIND CHARACTER BY ID  -->
-	${DEBUG} 
+	${DEBUG} ${dndCharacters}
 	<div>
 		<!--FIND CHARACTER BY ID  -->
 		<br>
 		<hr>
 		<h3>Search for Character with their ID</h3>
-		<form action="showCharacter.do" method="GET">
+		<form action="findCharacterById.do" method="GET">
 			<label for="id">Enter Character ID:</label> 
 			<input type="number" name="id" id="id" min=1 max=100 /> 
 			<input type="submit" value="Find Character">
 		</form>
 		RESULT:	${dndCharIdResult} 
+		
+		<ul>
+			
+				
+				<li><a><strong>Character ID:</strong> </a>${dndCharIdResult.id}</li>
+				<li><a><strong>Name:</strong> </a>${dndCharIdResult.name}</li>
+				<li><a><strong>Class: </strong></a>${dndCharIdResult.job}</li>
+				<li><a><strong>Race: </strong></a>${dndCharIdResult.race}</li>
+				<li><a><strong>Strength: </strong></a>${dndCharIdResult.strength}</li>
+				<li><a><strong>Dexterity: </strong></a>${dndCharIdResult.dexterity}</li>
+				<li><a><strong>Constitution: </strong></a>${dndCharIdResult.constitution}</li>
+				<li><a><strong>Intelligence: </strong></a>${dndCharIdResult.intelligence}</li>
+				<li><a><strong>Wisdom: </strong></a>${dndCharIdResult.wisdom}</li>
+				<li><a><strong>Charisma: </strong></a>${dndCharIdResult.charisma}</li>
+		
+		</ul>
 	</div>
 	
 	<hr>
@@ -39,6 +54,22 @@
 		</form>
 		<br>
 		RESULT: ${dndCharNameResult}
+		
+		<%-- <ul>
+			 <c:forEach var="dndCharN" items="${dndCharNameResult}">
+				
+				<li><a><strong>Character ID:</strong> </a>${dndCharN.id}</li>
+				<li><a><strong>Name:</strong> </a>${dndCharN.name}</li>
+				<li><a><strong>Class: </strong></a>${dndCharN.job}</li>
+				<li><a><strong>Race: </strong></a>${dndCharN.race}</li>
+				<li><a><strong>Strength: </strong></a>${dndCharN.strength}</li>
+				<li><a><strong>Dexterity: </strong></a>${dndCharN.dexterity}</li>
+				<li><a><strong>Constitution: </strong></a>${dndCharN.constitution}</li>
+				<li><a><strong>Intelligence: </strong></a>${dndCharN.intelligence}</li>
+				<li><a><strong>Wisdom: </strong></a>${dndCharN.wisdom}</li>
+				<li><a><strong>Charisma: </strong></a>${dndCharN.charisma}</li>
+			</c:forEach> 
+		</ul> --%>
 	</div>
 
 	<br>
@@ -54,7 +85,23 @@
 		
 		</form>
 		<br>
-		RESULT: ${dndCharJobAndRaceResultList}	
+		RESULT: ${dndCharJobRaceSearchResult}	
+		
+		<%-- <ul>
+			<c:forEach var="dndCharJR" items="${dndCharJobRaceResult}"> 
+				
+				<li><a><strong>Character ID:</strong> </a>${dndCharJR.id}</li>
+				<li><a><strong>Name:</strong> </a>${ddndCharJR.name}</li>
+				<li><a><strong>Class: </strong></a>${dndCharJR.job}</li>
+				<li><a><strong>Race: </strong></a>${dndCharJR.race}</li>
+				<li><a><strong>Strength: </strong></a>${dndCharJR.strength}</li>
+				<li><a><strong>Dexterity: </strong></a>${dndCharJR.dexterity}</li>
+				<li><a><strong>Constitution: </strong></a>${dndCharJR.constitution}</li>
+				<li><a><strong>Intelligence: </strong></a>${dndCharJR.intelligence}</li>
+				<li><a><strong>Wisdom: </strong></a>${dndCharJR.wisdom}</li>
+				<li><a><strong>Charisma: </strong></a>${dndCharJR.charisma}</li>
+	< 		</c:forEach>
+		</ul> --%>
 	</div>
 	<br>
 	<hr>
@@ -76,7 +123,7 @@
 				<li><a><strong>Intelligence: </strong></a>${dndChar.intelligence}</li>
 				<li><a><strong>Wisdom: </strong></a>${dndChar.wisdom}</li>
 				<li><a><strong>Charisma: </strong></a>${dndChar.charisma}</li>
-			</c:forEach>
+			</c:forEach> 
 		</ul>
 	</div>
 	<hr>
@@ -97,7 +144,7 @@
 		<a href="getAllCharacters.do"> getAllCharacters.do</a></p>
 			
 	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/index.jsp">Home Page Link</a>
-		<a href="index.do">index.do</a></p>
+		<!-- <a href="index.do">index.do</a></p> -->
 	
 	<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/noResult.jsp">No Result Link</a>
 		<a href="noResult.do">noResult.Do</a></p>

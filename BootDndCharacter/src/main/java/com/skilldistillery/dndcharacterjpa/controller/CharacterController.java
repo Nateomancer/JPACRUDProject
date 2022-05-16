@@ -27,7 +27,7 @@ public class CharacterController {
 
 		System.err.println("@@@@@@@@@@@@@@@@@@---PROGRAM START---@@@@@@@@@@@@@@@@@@");
 		System.err.println("@@@@@@@@@@@@@@@@@@---INDEX---@@@@@@@@@@@@@@@@@@");
-		//List<DndCharacter> completeDndCharacterList = null;
+		// List<DndCharacter> completeDndCharacterList = null;
 		List<DndCharacter> completeDndCharacterList = dao.findAllCharacters();
 		model.addAttribute("dndCharacters", completeDndCharacterList);
 		return "index";
@@ -36,15 +36,15 @@ public class CharacterController {
 	// FIND CHARACTER BY ID
 	// "/", "index.do","showCharacter.do"}
 	// {"showCharacter.do"}
-	@RequestMapping(path = "showCharacter.do" , method = RequestMethod.GET)
-	public String showCharacter(@RequestParam Integer id, Model model) {
+	@RequestMapping(path = "findCharacterById.do", method = RequestMethod.GET)
+	public String findCharacterById(@RequestParam Integer id, Model model) {
 
 		System.err.println("@@@@@@@@@@@@@@@@@@---SHOW CHARACTER BY ID---@@@@@@@@@@@@@@@@@@");
 		System.err.println("Char ID: " + id);
 		System.err.println("Printing Character info for character ID: " + id);
 		DndCharacter dndCharIdResult = dao.findCharacterById(id);
 		model.addAttribute("dndCharIdResult", dndCharIdResult);
-		System.err.println("FRPOM CONTROLLER: Character Found: " + dndCharIdResult);
+		System.err.println("FROM CONTROLLER: Character Found: " + dndCharIdResult);
 
 		return "index";
 	}
@@ -58,24 +58,29 @@ public class CharacterController {
 		System.err.println("Printing Character info for character Name: " + name);
 		DndCharacter dndCharNameResult = dao.findCharacterByName(name);
 		model.addAttribute("dndCharNameResult", dndCharNameResult);
-		System.err.println("Character: " + dndCharNameResult);
-		
+		System.err.println("dndCharNameResult: " + dndCharNameResult);
+
 		return "index";
 	}
 
 	// FIND CHARACTER BY CLASS OR RACE
 	@RequestMapping(path = "findCharacterByJobAndRace.do", method = RequestMethod.GET)
-	public String findCharacterByName(@RequestParam String job, String race, Model model) {
+	public String findCharacterByJobAndRace(@RequestParam String job, String race, Model model) {
 
 		System.err.println("@@@@@@@@@@@@@@@@@@---SHOW CHARACTER BY CLASS AND RACE---@@@@@@@@@@@@@@@@@@");
 		System.out.println("Char class: " + job);
 		System.out.println("Char race: " + race);
 		System.err.println("findCharacterByClassAndRace.do");
 
-		List<DndCharacter> dndCharJobAndRaceResultList = dao.findByJobAndRace(job, race);
-		model.addAttribute("dndCharJobAndRaceResultList", dndCharJobAndRaceResultList);
+		List<DndCharacter> dndCharJobRaceSearchResult = dao.findCharacterByJobAndRace(job, race);
+		model.addAttribute("dndCharJobRaceSearchResult", dndCharJobRaceSearchResult);
 
 		return "index";
 	}
+	
+	
+	//CREATE CHARACTER
+	//UPDATE CHARACTER
+	//DELETE CHARACTER
 
 }

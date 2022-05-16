@@ -8,9 +8,11 @@
 <title>Every Character in Account</title>
 </head>
 <body>
-
-<h2>Character List</h2>
-<c:forEach var="dndChar" items="${dndCharacters}"> 
+<div>
+		<h2>Character Table</h2>
+		<ul>
+		
+			<c:forEach var="dndChar" items="${dndCharacters}"> 
 				
 				<li><a><strong>Character ID:</strong> </a>${dndChar.id}</li>
 				<li><a><strong>Name:</strong> </a>${dndChar.name}</li>
@@ -25,6 +27,13 @@
 			</c:forEach>
 		</ul>
 	</div>
+	<div>
+	<nav>
+	<h2>Please use the link to return to the home page</h2>
 
+<p><a href="/BootDndCharacter/src/main/webapp/WEB-INF/index.jsp" href= index.do>Return to homepage</a>
+		<a href="index.do">index.do</a></p>
+	</nav>
+</div>
 </body>
 </html>

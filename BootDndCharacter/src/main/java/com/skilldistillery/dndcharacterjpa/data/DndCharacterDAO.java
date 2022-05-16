@@ -18,6 +18,6 @@ public interface DndCharacterDAO {
 
 	DndCharacter findCharacterByName(String characterName);
 
-	List<DndCharacter> findByJobAndRace(String characterClass, String race);
+	List<DndCharacter> findCharacterByJobAndRace(String characterClass, String race);
 
 }

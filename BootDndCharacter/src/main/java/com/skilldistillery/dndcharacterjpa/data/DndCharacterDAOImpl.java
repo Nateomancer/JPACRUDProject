@@ -85,10 +85,10 @@ public class DndCharacterDAOImpl implements DndCharacterDAO {
 	// List Character by Class or Race
 	// returns a Dnd Character list
 	@Override
-	public List<DndCharacter> findByClassAndRace(String job, String race) {
+	public List<DndCharacter> findByJobAndRace(String job, String race) {
 
 		List<DndCharacter> searchResult = null;
-		String jpql = "SELECT c FROM DndCharacter c WHERE c.job = :cc AND C.race =: cr";
+		String jpql = "SELECT c FROM DndCharacter c WHERE c.job = :cc AND c.race =: cr";
 		searchResult = em.createQuery(jpql, DndCharacter.class)
 				.setParameter("cc", job)
 				.setParameter("cr", race)

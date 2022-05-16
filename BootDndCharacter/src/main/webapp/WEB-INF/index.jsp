@@ -40,8 +40,8 @@
 	<div>
 		<!--FIND CHARACTER BY CLASS OR RACE-->
 		<h3>Search for Character with by class and race</h3>
-		<form action="findCharacterByClassAndRace.do" method="GET">
-			<label for="job">Enter Character Class:</label> 
+		<form action="findCharacterByJobAndRace.do" method="GET">
+			<label for="job">Enter Character Job:</label> 
 			<input type="text" name="job" id="job" /> 
 			<label for="race">Enter Character Race:</label> <input type="text" name="race" id="race" />
 			<input type="submit" value="Find Character">

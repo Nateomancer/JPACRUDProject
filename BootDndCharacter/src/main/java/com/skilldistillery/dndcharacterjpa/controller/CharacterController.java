@@ -64,15 +64,15 @@ public class CharacterController {
 	}
 
 	// FIND CHARACTER BY CLASS OR RACE
-	@RequestMapping(path = "findByClassAndRace", method = RequestMethod.GET)
-	public String findCharacterByName(@RequestParam String characterClass, String race, Model model) {
+	@RequestMapping(path = "findCharacterByJobAndRace.do", method = RequestMethod.GET)
+	public String findCharacterByName(@RequestParam String job, String race, Model model) {
 
 		System.err.println("@@@@@@@@@@@@@@@@@@---SHOW CHARACTER BY CLASS AND RACE---@@@@@@@@@@@@@@@@@@");
-		System.out.println("Char class: " + characterClass);
+		System.out.println("Char class: " + job);
 		System.out.println("Char race: " + race);
 		System.err.println("findCharacterByClassAndRace.do");
 
-		List<DndCharacter> dndCharResultList = dao.findByClassAndRace(characterClass, race);
+		List<DndCharacter> dndCharResultList = dao.findByJobAndRace(job, race);
 		model.addAttribute("dndCharResultList", dndCharResultList);
 
 		return "index";

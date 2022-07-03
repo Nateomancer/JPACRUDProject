@@ -9,7 +9,7 @@
 
 
 		<!-- begin entities -->
-		<class>com.skilldistillery.dndcharacterjpa.entities.Character</class>
+		<class>com.skilldistillery.dndcharacterjpa.entities.DndCharacter</class>
 		<!-- end entities -->
 
 
